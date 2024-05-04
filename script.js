@@ -1,6 +1,9 @@
+// any changes to api key will be done in another js file
+import {apiKey} from "./api-key.js";
+
 async function fetchRate() {
   try {
-    const response = await fetch("https://v6.exchangerate-api.com/v6/75ecfe5ea43c6bf69b25929b/latest/USD");
+    const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`);
     const data = await response.json();
     if (data.result === "success") {
       console.log("data fetched from API");

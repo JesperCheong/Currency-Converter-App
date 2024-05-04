@@ -6,10 +6,80 @@
   <meta name="viewport" content="width=device-width">
   <title>Currency Converter App</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-  Currency Convert APP
+  <div class="row m-0">
+    <!-- VERSION 1 -->
+    <div class="col-md-6 p-0">
+      <div class="text-center my-5">
+        <img src="./img/currencies.png" width="200px">
+        <h1>Currency Convert APP</h1>
+      </div>
+
+      <div class="container px-lg-5">
+        <div class="form-floating my-3">
+          <input type="number" class="form-control" placeholder="Enter an amount" id="amountInput"></input>
+          <label for="amountInput">Amount:</label>
+        </div>
+
+        <div class="row text-center align-items-center my-3">
+          <div class="col-sm-5">
+            <div class="form-floating">
+              <select class="form-select" id="fromSelect">
+                <option value="1">USD</option>
+                <option value="2">MYR</option>
+                <option value="3">SGD</option>
+              </select>
+              <label for="formSelect">From:</label>
+            </div>
+          </div>
+          <div class="col-sm-2 my-3">
+            <i class="bi bi-arrow-left-right"></i>
+          </div>
+          <div class="col-sm-5">
+            <div class="form-floating">
+              <select class="form-select" id="toSelect">
+                <option value="1">USD</option>
+                <option value="2">MYR</option>
+                <option value="3">SGD</option>
+              </select>
+              <label for="toSelect">To:</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-grid gap-3 mt-4">
+          <button class="btn btn-primary btn-lg" type="button">Convert</button>
+          <button class="btn btn-primary btn-lg" type="button">Reset</button>
+        </div>
+
+        <div class="result1 rounded my-4">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-auto">10000 USD</div>
+            <div class="col-auto">=</div>
+            <div class="col-auto">47500 MYR</div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+    <!-- VERSION 2 -->
+    <div class="col-md-6 p-0">
+
+    </div>
+  </div>
 
 
 
@@ -20,9 +90,12 @@
 
 
 
+
+
+
+  <script type="module" src="./script.js"></script>
+  <script src="./script-v1.js"></script>
   
-  <script src="script.js"></script>
-
   <!--
   This script places a badge on your repl's full-browser view back to your repl's cover
   page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,

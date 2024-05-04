@@ -2,3 +2,9 @@ html {
   height: 100%;
   width: 100%;
 }
+
+.result1 {
+  font-size: 1.5em;
+  font-weight: 500;
+  background-color: skyblue;
+}
