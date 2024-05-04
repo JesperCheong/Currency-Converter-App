@@ -1,4 +1,4 @@
-// any changes to api key will be done in another js file
+// any changes to api key can be done in isolated js file
 import {apiKey} from "./api-key.js";
 
 async function fetchRate() {
@@ -36,6 +36,7 @@ async function initialize() {
     console.log("data from local storage", conversionRates)
   }
 
+  return conversionRates;
 }
 
-initialize();
+export const conversionRates = await initialize();

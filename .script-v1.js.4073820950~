@@ -1,0 +1,14 @@
+import {currenciesCode} from "./currencies-code.js";
+
+function addOptionTo
+
+const fromDropdown = document.getElementById("fromCurrencyDropdown");
+const toDropdown = document.getElementById("toCurrencyDropdown");
+
+currenciesCode.forEach((currency)=>{
+  const option = document.createElement("option");
+  option.value = currency;
+  option.innerText = currency;
+  fromDropdown.add(option); //add to "from"
+  toDropdown.add(option); // add to "to"
+});
