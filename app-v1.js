@@ -14,13 +14,12 @@ function addOptionToDropdown(dropdown, item, defaultOption) {
   dropdown.add(option);
 }
 
-function convert() {
-  const amount = Number(document.getElementById("amountInput").value);
-  const result1 = document.getElementById("result1"); 
+window.convert = function convert() {
+  const amount = Number(amountInput.value);
   const fromCurrency = fromDropdown.value;
   const toCurrency = toDropdown.value;
   
-  if (amount && amount > 0) {
+    if (amount && amount > 0) {
     const fromRate = conversionRates[fromCurrency];
     const toRate = conversionRates[toCurrency];
     const convertedAmount = amount * toRate / fromRate;
@@ -30,6 +29,14 @@ function convert() {
   }
 }
 
+window.reset = function reset() {
+  document.getElementById("amountInput").value = 1;
+  fromDropdown.value = "USD";
+  toDropdown.value = "MYR";
+  convert();
+}
+const amountInput = document.getElementById("amountInput");
+const result1 = document.getElementById("result1"); 
 const fromDropdown = document.getElementById("fromCurrencyDropdown");
 const toDropdown = document.getElementById("toCurrencyDropdown");
 
@@ -37,6 +44,4 @@ currenciesCode.forEach((currency) => {
   addOptionToDropdown(fromDropdown, currency, "USD");
   addOptionToDropdown(toDropdown, currency, "MYR");
 });
-//function in onclick is not scoped globally due to module
-window.convert = convert;
 convert();

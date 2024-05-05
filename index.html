@@ -33,7 +33,7 @@
           <div class="col-sm-5">
             <div class="form-floating">
               <select class="form-select" id="fromCurrencyDropdown">
-               
+
               </select>
               <label for="formSelect">From:</label>
             </div>
@@ -44,7 +44,7 @@
           <div class="col-sm-5">
             <div class="form-floating">
               <select class="form-select" id="toCurrencyDropdown">
-                
+
               </select>
               <label for="toSelect">To:</label>
             </div>
@@ -57,11 +57,9 @@
         </div>
 
         <div class="result1 rounded py-3 my-4 text-center" id="result1">
-          <!-- <div class="row justify-content-center align-items-center">
-            <div class="col-auto">10000 USD</div>
-            <div class="col-auto">=</div>
-            <div class="col-auto">47500 MYR</div>
-          </div> -->
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
 
 
@@ -89,10 +87,8 @@
 
 
 
-  <script type="module" src="./currencies-code.js"></script>
   <script type="module" src="./app-v1.js"></script>
-  <script type="module" src="./test.js"></script>
-  
+
   <!--
   This script places a badge on your repl's full-browser view back to your repl's cover
   page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
