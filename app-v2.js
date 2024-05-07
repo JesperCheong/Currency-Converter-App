@@ -3,7 +3,6 @@ import { currenciesCode, addOptionToDropdown } from "./currencies-code.js";
 import { conversionRates } from "./fetch.js";
 
 window.convertV2 = function convertV2(currency1, currency2, amount, display) {
-  console.log("change");
   const fromAmount = Number(amount.value);
   const fromCurrency = currency1.value;
   const toCurrency = currency2.value;
@@ -17,17 +16,23 @@ window.convertV2 = function convertV2(currency1, currency2, amount, display) {
   } else {
     display.value = "";
   }
-
 }
 
 function exchangeRateDisplay() {
-  // 1 USD = 4.75 MYR
   const currencyInfo = document.getElementById("currencyInfo");
   const infoIcon = document.getElementById("infoIcon");
-  const rate = conversionRates[secondDropdownV2.value] / conversionRates[firstDropdownV2.value]; 
-  
+  const rate = conversionRates[secondDropdownV2.value] / conversionRates[firstDropdownV2.value];
+
   currencyInfo.innerText = `1 ${firstDropdownV2.value} = ${rate.toFixed(2)} ${secondDropdownV2.value}`
   infoIcon.classList.remove("d-none");
+}
+
+window.swapCurrencyV2 = function swapCurrencyV2() {
+  const tempCurrency = firstDropdownV2.value;
+  firstDropdownV2.value = secondDropdownV2.value;
+  secondDropdownV2.value = tempCurrency;
+  convertV2(firstDropdownV2, secondDropdownV2, firstAmountInputV2, secondAmountInputV2);
+  exchangeRateDisplay();
 }
 
 window.firstAmountInputV2 = document.getElementById("firstInputV2");

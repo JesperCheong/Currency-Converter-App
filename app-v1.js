@@ -25,6 +25,12 @@ window.reset = function reset() {
   convert();
 }
 
+window.swapCurrencyV1 = function swapCurrencyV1() {
+  const tempCurrency = fromDropdownV1.value;
+  fromDropdownV1.value = toDropdownV1.value;
+  toDropdownV1.value = tempCurrency;
+}
+
 
 const amountInput = document.getElementById("amountInput");
 const result1 = document.getElementById("result1");

@@ -38,7 +38,7 @@
               <label for="fromCurrencyDropdownV1">From:</label>
             </div>
           </div>
-          <div class="col-sm-1 my-3">
+          <div class="col-sm-1 my-3" onclick="swapCurrencyV1()">
             <i class="bi bi-arrow-left-right"></i>
           </div>
           <div class="col-sm">
@@ -77,7 +77,7 @@
           <div class="col-xxl">
             <div class="row">
               <!-- FIRST CURRENCY -->
-              <div class="col-4 pe-1">
+              <div class="col-sm-4 pe-sm-1">
                 <div class="form-floating">
                   <select class="form-select" id="firstCurrencyDropdownV2"
                     onchange="convertV2(firstDropdownV2, secondDropdownV2, firstAmountInputV2, secondAmountInputV2)">
@@ -86,7 +86,7 @@
                 </div>
               </div>
               <!-- FIRST AMOUNT -->
-              <div class="col-8 ps-1">
+              <div class="col-sm-8 ps-sm-1">
                 <div class="form-floating">
                   <input type="number" class="form-control" placeholder="Enter an amount" id="firstInputV2" value=1
                     oninput="convertV2(firstDropdownV2, secondDropdownV2, firstAmountInputV2, secondAmountInputV2)"></input>
@@ -96,14 +96,14 @@
             </div>
           </div>
           <!-- ----------------------- MID ICON ----------------------- -->
-          <div class="col-xxl-1 my-3">
+          <div class="col-xxl-1 my-3" onclick="swapCurrencyV2()">
             <i class="bi bi-arrow-left-right"></i>
           </div>
           <!-- ----------------------- CURRENCY 2 ----------------------- -->
           <div class="col-xxl">
             <div class="row">
               <!-- SECOND CURRENCY -->
-              <div class="col-4 pe-1">
+              <div class="col-sm-4 pe-sm-1">
                 <div class="form-floating">
                   <select class="form-select" id="secondCurrencyDropdownV2" onchange="convertV2(secondDropdownV2, firstDropdownV2, firstAmountInputV2, secondAmountInputV2)">
                   </select>
@@ -111,7 +111,7 @@
                 </div>
               </div>
               <!-- SECOND AMOUNT -->
-              <div class="col-8 ps-1">
+              <div class="col-sm-8 ps-sm-1">
                 <div class="form-floating">
                   <input type="number" class="form-control" placeholder="Enter an amount" id="secondInputV2" oninput="convertV2(secondDropdownV2, firstDropdownV2, secondAmountInputV2, firstAmountInputV2)"></input>
                   <label for="secondInputV2">Amount:</label>
