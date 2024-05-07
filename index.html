@@ -20,57 +20,120 @@
     <div class="col-md-6 p-0">
       <div class="text-center my-5">
         <img src="./img/currencies.png" width="200px">
-        <h1>Currency Convert APP</h1>
+        <h1>Currency Convert APP v1</h1>
       </div>
-
+      <!-- ----------------------- AMOUNT INPUT ----------------------- -->
       <div class="container px-lg-5">
         <div class="form-floating my-3">
           <input type="number" class="form-control" placeholder="Enter an amount" id="amountInput" value=1></input>
           <label for="amountInput">Amount:</label>
         </div>
-
+        <!-- ----------------------- CURRENCY SELECT ----------------------- -->
         <div class="row text-center align-items-center my-3">
-          <div class="col-sm-5">
+          <div class="col-sm">
             <div class="form-floating">
-              <select class="form-select" id="fromCurrencyDropdown">
+              <select class="form-select" id="fromCurrencyDropdownV1">
 
               </select>
-              <label for="formSelect">From:</label>
+              <label for="fromCurrencyDropdownV1">From:</label>
             </div>
           </div>
-          <div class="col-sm-2 my-3">
+          <div class="col-sm-1 my-3">
             <i class="bi bi-arrow-left-right"></i>
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm">
             <div class="form-floating">
-              <select class="form-select" id="toCurrencyDropdown">
+              <select class="form-select" id="toCurrencyDropdownV1">
 
               </select>
-              <label for="toSelect">To:</label>
+              <label for="toCurrencyDropdownV1">To:</label>
             </div>
           </div>
         </div>
-
+        <!-- --------------------------- BUTTON -------------------------- -->
         <div class="d-grid gap-3 mt-4">
           <button class="btn btn-primary btn-lg" type="button" onclick="convert()">Convert</button>
           <button class="btn btn-primary btn-lg" type="button" onclick="reset()">Reset</button>
         </div>
-
+        <!-- --------------------------- RESULT -------------------------- -->
         <div class="result1 rounded py-3 my-4 text-center" id="result1">
           <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- VERSION 2 -->
+    <div class="col-md-6 p-0">
+      <div class="text-center my-5">
+        <img src="./img/currencies.png" width="200px">
+        <h1>Currency Convert APP v2</h1>
+      </div>
+      <!-- ------------------ CURRENCY SELECT / AMOUNT INPUT ------------------ -->
+      <div class="container px-lg-5">
+        <div class="row text-center align-items-center my-3">
+          <!-- ----------------------- CURRENCY 1 ----------------------- -->
+          <div class="col-xxl">
+            <div class="row">
+              <!-- FIRST CURRENCY -->
+              <div class="col-4 pe-1">
+                <div class="form-floating">
+                  <select class="form-select" id="firstCurrencyDropdownV2"
+                    onchange="convertV2(firstDropdownV2, secondDropdownV2, firstAmountInputV2, secondAmountInputV2)">
+                  </select>
+                  <label for="firstCurrencyDropdownV2">Currency 1:</label>
+                </div>
+              </div>
+              <!-- FIRST AMOUNT -->
+              <div class="col-8 ps-1">
+                <div class="form-floating">
+                  <input type="number" class="form-control" placeholder="Enter an amount" id="firstInputV2" value=1
+                    oninput="convertV2(firstDropdownV2, secondDropdownV2, firstAmountInputV2, secondAmountInputV2)"></input>
+                  <label for="firstInputV2">Amount:</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ----------------------- MID ICON ----------------------- -->
+          <div class="col-xxl-1 my-3">
+            <i class="bi bi-arrow-left-right"></i>
+          </div>
+          <!-- ----------------------- CURRENCY 2 ----------------------- -->
+          <div class="col-xxl">
+            <div class="row">
+              <!-- SECOND CURRENCY -->
+              <div class="col-4 pe-1">
+                <div class="form-floating">
+                  <select class="form-select" id="secondCurrencyDropdownV2" onchange="convertV2(secondDropdownV2, firstDropdownV2, firstAmountInputV2, secondAmountInputV2)">
+                  </select>
+                  <label for="secondCurrencyDropdownV2">Currency 2:</label>
+                </div>
+              </div>
+              <!-- SECOND AMOUNT -->
+              <div class="col-8 ps-1">
+                <div class="form-floating">
+                  <input type="number" class="form-control" placeholder="Enter an amount" id="secondInputV2" oninput="convertV2(secondDropdownV2, firstDropdownV2, secondAmountInputV2, firstAmountInputV2)"></input>
+                  <label for="secondInputV2">Amount:</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
+          <!-- -------------------- CURRENCY INFO -------------------- -->
+          <div class="text-start ms-3">
+            <i class="bi bi-info-circle-fill d-none" id="infoIcon"></i>
+            <span id="currencyInfo"></span>
+          </div>
+        </div>
       </div>
 
 
 
 
-    </div>
-    <!-- VERSION 2 -->
-    <div class="col-md-6 p-0">
+
+
 
     </div>
   </div>
@@ -88,6 +151,7 @@
 
 
   <script type="module" src="./app-v1.js"></script>
+  <script type="module" src="./app-v2.js"></script>
 
   <!--
   This script places a badge on your repl's full-browser view back to your repl's cover

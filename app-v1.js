@@ -1,29 +1,18 @@
 // available currencies can be changed in isolated js file
-import { currenciesCode } from "./currencies-code.js";
+import { currenciesCode, addOptionToDropdown } from "./currencies-code.js";
 import { conversionRates } from "./fetch.js";
-
-// function to add currency options to dropdown 
-function addOptionToDropdown(dropdown, item, defaultOption) {
-  const option = document.createElement("option");
-  option.value = item;
-  option.innerText = item;
-  // select default option for dropdown
-  if (item === defaultOption) {
-    option.selected = true;
-  }
-  dropdown.add(option);
-}
 
 window.convert = function convert() {
   const amount = Number(amountInput.value);
-  const fromCurrency = fromDropdown.value;
-  const toCurrency = toDropdown.value;
-  
-    if (amount && amount > 0) {
-    const fromRate = conversionRates[fromCurrency];
-    const toRate = conversionRates[toCurrency];
+  const fromCurrencyV1 = fromDropdownV1.value;
+  const toCurrencyV1 = toDropdownV1.value;
+
+  if (amount && amount > 0) {
+    console.log(amount);
+    const fromRate = conversionRates[fromCurrencyV1];
+    const toRate = conversionRates[toCurrencyV1];
     const convertedAmount = amount * toRate / fromRate;
-    result1.innerText = `${amount.toFixed(2)} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+    result1.innerText = `${amount.toFixed(2)} ${fromCurrencyV1} = ${convertedAmount.toFixed(2)} ${toCurrencyV1}`;
   } else {
     alert("Please enter a valid amount.");
   }
@@ -31,17 +20,19 @@ window.convert = function convert() {
 
 window.reset = function reset() {
   document.getElementById("amountInput").value = 1;
-  fromDropdown.value = "USD";
-  toDropdown.value = "MYR";
+  fromDropdownV1.value = "USD";
+  toDropdownV1.value = "MYR";
   convert();
 }
+
+
 const amountInput = document.getElementById("amountInput");
-const result1 = document.getElementById("result1"); 
-const fromDropdown = document.getElementById("fromCurrencyDropdown");
-const toDropdown = document.getElementById("toCurrencyDropdown");
+const result1 = document.getElementById("result1");
+const fromDropdownV1 = document.getElementById("fromCurrencyDropdownV1");
+const toDropdownV1 = document.getElementById("toCurrencyDropdownV1");
 
 currenciesCode.forEach((currency) => {
-  addOptionToDropdown(fromDropdown, currency, "USD");
-  addOptionToDropdown(toDropdown, currency, "MYR");
+  addOptionToDropdown(fromDropdownV1, currency, "USD");
+  addOptionToDropdown(toDropdownV1, currency, "MYR");
 });
 convert();
